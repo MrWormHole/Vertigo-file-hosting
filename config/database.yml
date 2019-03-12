@@ -77,10 +77,10 @@ test:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+#     url: postgres://kxhuznahmhatsi:23e13ee49d7262a1f7c788f380fc54e04ce4ca5173412047de747858a80b2f22@ec2-54-221-201-212.compute-1.amazonaws.com:5432/d3iupekt61ph3b
 #
 production:
   <<: *default
-  database: demoApp_production
-  username: demoApp
-  password: <%= ENV['DEMOAPP_DATABASE_PASSWORD'] %>
+  database: d3iupekt61ph3b
+  username: kxhuznahmhatsi
+  password: 23e13ee49d7262a1f7c788f380fc54e04ce4ca5173412047de747858a80b2f22
