@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: demoApp_development
+  database: demoApp
   username: Goldenhand
   password: Jack.123
 
@@ -32,7 +32,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: demoApp_test
+  database: demoApp
   username: Goldenhand
   password: Jack.123
 
@@ -54,8 +54,9 @@ test:
 #
 production:
   <<: *default
-  url: postgres://kxhuznahmhatsi:23e13ee49d7262a1f7c788f380fc54e04ce4ca5173412047de747858a80b2f22@ec2-54-221-201-212.compute-1.amazonaws.com:5432/d3iupekt61ph3b
-  database: demoApp_production
+  database: demoApp
   username: Goldenhand
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  password: Jack.123
+
+
 
