@@ -1,14 +1,14 @@
 
 # Vertigo File Hosting demoApp
 
-Running pretty well at https://frozen-cliffs-76287.herokuapp.com/ :)
-
 Things i want to improve:
+
+* Testing active storage [DONE]
+
+* Switching from carrierwave to active storage
 
 * Carousel not sliding(frontend bug)
 
 * Better friendly UI design
 
-* More file extension types
-
-* Authentication and basic/premium user accounts
+* After all those steps. It will be deployed to heroku
