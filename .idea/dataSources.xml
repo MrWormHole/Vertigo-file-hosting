@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails vertigo-platform: test" uuid="8a4c158b-7e15-4138-8bfc-b9a8e41b826c">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/vertigo_platform_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails vertigo-platform: development" uuid="a4647322-5556-426e-a977-7cbfcd919a9c">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/vertigo_platform_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails vertigo-platform: production" uuid="bd8c807c-b6df-4035-a272-1959d4cfd6de">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/vertigo_platform_production</jdbc-url>
+    </data-source>
+  </component>
+</project>
