@@ -1,7 +1,7 @@
 <style type="text/css">
   .carousel-item {
     height: 100vh;
-    min-height: 350px;
+    min-height: 400px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -10,45 +10,205 @@
   }
 </style>
 
-<div class="container">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div class="container-carousel">
+  <!-- Carousel Indicators -->
+  <div id="carousel-indicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
+    <!-- Carousel Content -->
     <div class="carousel-inner">
       <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url(<%= asset_path('vertigo-background-1.jfif') %>)">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Handles some of your file needs</h2>
-          <p class="lead">File storage made easy and it is free, Vertigo can extend your storage beyond your computer.
-            Currently supported file types are documents(pdf,doc,htm,html,docx) at the moment. </p>
+          <h2 class="display-4">
+            Handles your file needs
+          </h2>
+          <p class="lead">
+            Vertigo lets you easily upload all your files and it is even free. <br />
+            Vertigo can extend your storage beyond your computer.
+          </p>
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url(<%= asset_path('vertigo-background-2.jfif') %>)">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Second Slide</h2>
-          <p class="lead">This is a description for the second slide.</p>
+          <h2 class="display-4">
+            Your privacy matters
+          </h2>
+          <p class="lead">
+            Vertigo uses strong encryption to keep your files safe. <br />
+            Vertigo keeps your files private from public unless you want to share the link
+          </p>
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url(<%= asset_path('vertigo-background-3.jfif') %>)">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Third Slide</h2>
-          <p class="lead">This is a description for the third slide.</p>
+          <h2 class="display-4">
+            Access file from anywhere
+          </h2>
+          <p class="lead">
+            Vertigo servers are always up and running. <br />
+            Vertigo provides you to share files from anywhere
+          </p>
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <!-- Carousel Buttons as left arrow and right arrow -->
+    <a class="carousel-control-prev" href="#carousel-indicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carousel-indicators" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+  </div>
+</div>
+
+  <!-- Marketing Cards -->
+  <div class="row" style="width: 100%;margin:0 auto;padding: 1rem 1rem">
+    <!-- First card -->
+    <div class="col-md-4">
+      <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="">
+      <h2> Heading </h2>
+      <p>
+        Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+        Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac,
+        vestibulum at eros. Praesent commodo cursus magna.
+      </p>
+      <p>
+        <a class="btn btn-secondary" href="#" role="button">
+          View Details
+        <a/>
+      <p/>
+    </div>
+    <!-- Second card -->
+    <div class="col-md-4">
+      <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="">
+      <h2> Heading </h2>
+      <p>
+        Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+        Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac,
+        vestibulum at eros. Praesent commodo cursus magna.
+      </p>
+      <p>
+        <a class="btn btn-secondary" href="#" role="button">
+          View Details
+          <a/>
+      <p/>
+    </div>
+    <!-- Third card -->
+    <div class="col-md-4">
+      <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="">
+      <h2> Heading </h2>
+      <p>
+        Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+        Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac,
+        vestibulum at eros. Praesent commodo cursus magna.
+      </p>
+      <p>
+        <a class="btn btn-secondary" href="#" role="button">
+          View Details
+          <a/>
+      <p/>
+    </div>
+  </div>
+<!-- Features -->
+<div class="container">
+    <hr class="featurette-divider" style="margin-top: 5rem">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider" style="margin-top: 5rem">
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider" style="margin-top: 5rem">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
+  <div/>
+
+  <hr class="featurette-divider" style="margin-top: 5rem">
+</div>
+<!-- Pricing Header -->
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Pricing</h1>
+  <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+</div>
+<!-- Pricing Cards -->
+<div class="container">
+
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Free</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>10 users included</li>
+          <li>2 GB of storage</li>
+          <li>Email support</li>
+          <li>Help center access</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Pro</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>20 users included</li>
+          <li>10 GB of storage</li>
+          <li>Priority email support</li>
+          <li>Help center access</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Enterprise</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>30 users included</li>
+          <li>15 GB of storage</li>
+          <li>Phone and email support</li>
+          <li>Help center access</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+      </div>
+    </div>
   </div>
 
 </div>
