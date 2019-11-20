@@ -1,9 +1,9 @@
 class Attachment < ApplicationRecord
   belongs_to :user
-  has_many_attached :buckets
+  has_one_attached :file
 
   validates_presence_of :name
-  validates_presence_of :buckets
+  validates_presence_of :file
 
   scope :visible, lambda {where(:visible => true)}
   scope :invisible, lambda {where(:visible => false)}

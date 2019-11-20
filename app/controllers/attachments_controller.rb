@@ -1,4 +1,4 @@
-class AttachmentController < ApplicationController
+class AttachmentsController < ApplicationController
 
   # before_action :authenticate_user!,:except => [:show]
   # before_action :prevent_user_forgery, :only => [:edit,:update,:delete,:destroy]
@@ -8,7 +8,9 @@ class AttachmentController < ApplicationController
   end
 
   def show
-    # not sure if i need this. Remove this from routes
+    # this is gonna be for showing a download link
+    # get it and show it if user allowed it to be seen only
+    # @attachment = Attachment.find(params[:id])
   end
 
   def new
@@ -16,49 +18,50 @@ class AttachmentController < ApplicationController
   end
 
   def create
-    @attachment = current_user.attachment.build(attachment_params)
+    @attachment = current_user.attachments.build(attachment_params)
 
     if @attachment.save
       flash[:notice] = "Success! Attachment created"
-      redirect_to @attachment
+      redirect_to attachments_path
     else
       render('new')
     end
   end
 
   def edit
-    #@attachment = Attachment.find(params[:id])
+    @attachment = Attachment.find(params[:id])
     if !@authoriy_provided
       redirect_to :controller => 'attachment',:action => 'index'
     end
   end
 
   def update
-    #@attachment = Attachment.find(params[:id])
+    @attachment = Attachment.find(params[:id])
     if @attachment.update(attachment_params)
       flash[:notice] = "Success! Attachment updated"
-      redirect_to :controller => 'attachment', :action => 'index'
+      redirect_to attachments_path
     else
       render('edit')
     end
   end
 
   def delete
-    #@post = Post.find(params[:id])
+    @attachment = Attachment.find(params[:id])
     if !@authoriy_provided
-      redirect_to :controller => 'attachment',:action => 'index'
+      redirect_to attachments_path
     end
   end
 
   def destroy
+    @attachment = Attachment.find(params[:id])
     @attachment.destroy
     flash[:notice] = "Success! Attachment destroyed"
-    redirect_to :controller => 'attachment', :action => 'index'
+    redirect_to attachments_path
   end
 
   private
   def attachment_params
-    params.require(:attachment).permit(:name, buckets: [])
+    params.require(:attachment).permit(:name, :file)
   end
 
   def prevent_user_forgery

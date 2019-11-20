@@ -1,10 +1,10 @@
 <br />
 <br />
 <br />
-<% if !@user.errors.empty? %>
+<% if !@attachment.errors.empty? %>
   <div class = "alert alert-danger">
     <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+      <% @attachment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
@@ -13,9 +13,9 @@
 
 <br/>
 <div class = "well">
-  <%= form_for @user, html: { multipart: true } do |f| %>
-    <%= f.label :name_of_file %>
-    <%= f.text_field :name_of_file %>
+  <%= form_for @attachment, :url => attachments_path, html: { multipart: true } do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
     <%= f.label :file %>
     <%= f.file_field :file %>
     <%= f.submit "Save", class: "btn btn-primary" %>
