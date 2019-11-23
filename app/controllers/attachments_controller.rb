@@ -28,6 +28,7 @@ class AttachmentsController < ApplicationController
     end
   end
 
+  # edit will be removed in future, maybe change name of the file?
   def edit
     @attachment = Attachment.find(params[:id])
     if !@authoriy_provided
@@ -35,6 +36,7 @@ class AttachmentsController < ApplicationController
     end
   end
 
+  # edit will be removed in future, maybe change name of the file?
   def update
     @attachment = Attachment.find(params[:id])
     if @attachment.update(attachment_params)
@@ -45,6 +47,7 @@ class AttachmentsController < ApplicationController
     end
   end
 
+  # if you don't use delete view this is also useless because this is GET request
   def delete
     @attachment = Attachment.find(params[:id])
     if !@authoriy_provided
