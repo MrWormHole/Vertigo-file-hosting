@@ -1,50 +1,47 @@
-<div class="text-center">Log in</div>
-
-<div class="text-center">
-<form style="width: 100%; max-width: 330px; padding: 15px; margin: auto">
-  <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-</form>
+<div class="text-center mt-4" style="width: 100%; max-width: 330px; padding: 15px; margin: auto">
+  <svg class="mb-4" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+       width="64" height="64"
+       viewBox="0 0 172 172"
+       style=" fill:#000000;">
+      <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+         stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+         font-family="none" font-size="none" style="mix-blend-mode: normal">
+        <path d="M0,172v-172h172v172z" fill="none"></path>
+        <path d="M25.8,172c-14.24895,0 -25.8,-11.55105 -25.8,-25.8v-120.4c0,-14.24895 11.55105,-25.8 25.8,-25.8h120.4c14.24895,0 25.8,11.55105 25.8,25.8v120.4c0,14.24895 -11.55105,25.8 -25.8,25.8z" fill="#fdec89"></path>
+        <g fill="#3498db">
+          <path d="M140.53088,26.61459c-0.51462,-0.72653 -1.35123,-1.15859 -2.24288,-1.15859h-20.40883c-1.1696,0 -2.20986,0.73754 -2.59789,1.84109l-29.23725,83.47091h-0.08806l-29.23725,-83.47091c-0.38803,-1.10355 -1.42829,-1.84109 -2.59789,-1.84109h-20.40883c-0.89165,0 -1.72826,0.43206 -2.24288,1.15859c-0.51738,0.72928 -0.64947,1.66221 -0.35501,2.50432l40.48467,115.584c0.38803,1.10355 1.42829,1.84109 2.59789,1.84109h23.60666c1.1696,0 2.20986,-0.73754 2.59789,-1.84109l40.48467,-115.584c0.29446,-0.84211 0.16237,-1.77504 -0.35501,-2.50432z">
+          </path>
+        </g>
+      </g>
+    </svg>
+    <h1 class="h3 mb-3 font-weight-normal text-capitalize">login</h1>
 </div>
 
-<div class="form-sign-in" style="background:rgba(140,140,140,0.50);">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="form-login" >
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { style: "width: 100%; padding: 15px; margin: auto"}) do |f| %>
     <div class="row">
       <div class="form-group col-md-4 offset-md-4">
-        <div style="font-family: 'Roboto'; font-size: 2rem;">
-          <%= f.label :email %>
-        </div>
-        <%= f.email_field :email, autofocus: true, autocomplete:"email", class: "form-control" %>
+        <%= f.label :email, for: "inputEmail" %>
+        <%= f.email_field :email, autofocus: true, autocomplete:"email", class: "form-control", placeholder:"Your Email", id: "inputEmail" %>
       </div>
 
       <div class="form-group col-md-4 offset-md-4">
-        <div style="font-family: 'Roboto'; font-size: 2rem;">
-          <%= f.label :password %>
-        </div>
-        <%= f.label :password, autocomplete: "current-password", class: "form-control" %>
+        <%= f.label :password, for: "inputPassword" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Your Password", id: "inputPassword" %>
       </div>
 
-      <div class="form-group col-md-12">
+
+      <div class="form-group col-md-4 offset-md-4">
         <% if devise_mapping.rememberable? %>
           <div class="form-check">
             <%= f.check_box :remember_me,class:"form-check-input"  %>
-            <%= f.label :remember_me,class:"form-check-label",style:"font-weight:400;font-size:20px;margin-left:0.75rem" %>
+            <%= f.label :remember_me,class:"form-check-label" %>
           </div>
         <% end %>
       </div>
 
       <div class="actions col-md-4 offset-md-4">
-        <%= f.submit "Log in",class:'btn btn-secondary',style:"font-size:20px" %>
+        <%= f.submit "Log in",class:'btn btn-lg btn-primary btn-block' %>
       </div>
     </div>
   <% end %>
