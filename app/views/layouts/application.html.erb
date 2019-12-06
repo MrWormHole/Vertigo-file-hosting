@@ -9,10 +9,26 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="/">Vertigo File Hosting</a>
+  <body data-spy="scroll" data-target="#navbar-example" data-offset="100">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="navbar-example">
+      <a class="navbar-brand" href="/">
+        <svg class="d-inline-block align-top" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+             width="30" height="30"
+             viewBox="0 0 172 172"
+             style=" fill:#000000;">
+          <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+             stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+             font-family="none" font-size="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <path d="M25.8,172c-14.24895,0 -25.8,-11.55105 -25.8,-25.8v-120.4c0,-14.24895 11.55105,-25.8 25.8,-25.8h120.4c14.24895,0 25.8,11.55105 25.8,25.8v120.4c0,14.24895 -11.55105,25.8 -25.8,25.8z" fill="#fdec89"></path>
+            <g fill="#3498db">
+              <path d="M140.53088,26.61459c-0.51462,-0.72653 -1.35123,-1.15859 -2.24288,-1.15859h-20.40883c-1.1696,0 -2.20986,0.73754 -2.59789,1.84109l-29.23725,83.47091h-0.08806l-29.23725,-83.47091c-0.38803,-1.10355 -1.42829,-1.84109 -2.59789,-1.84109h-20.40883c-0.89165,0 -1.72826,0.43206 -2.24288,1.15859c-0.51738,0.72928 -0.64947,1.66221 -0.35501,2.50432l40.48467,115.584c0.38803,1.10355 1.42829,1.84109 2.59789,1.84109h23.60666c1.1696,0 2.20986,-0.73754 2.59789,-1.84109l40.48467,-115.584c0.29446,-0.84211 0.16237,-1.77504 -0.35501,-2.50432z">
+              </path>
+            </g>
+          </g>
+        </svg>
+        <b><i> Vertigo File Hosting </i></b>
+      </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,25 +37,50 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/users/sign_up"> Sign Up
+            <a class="nav-link" href="/#features"> Features
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/sign_in"> Login </a>
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="/#pricing"> Pricing
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
         </ul>
+     
+        <% if !user_signed_in? %>
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a type="button" class="btn btn-warning" href="/users/sign_up" style="width:cover;height:cover;color:#FFFFFF;text-decoration:none" >
+              <b> Sign Up </b>
+            </a>
+          </div>
+
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <a type="button" class="btn btn-warning" href="/users/sign_in" style="color:#FFFFFF;text-decoration:none" >
+              <b> Login </b>
+            </a>
+          </div>
+        <% else %>
+          <div class="btn-group mr-2" role="group" aria-label="Third group">
+            <a type="button" class="btn btn-warning" href="/attachments" style="color:#FFFFFF;text-decoration:none" >
+              <b> Files </b>
+            </a>
+          </div>
+
+          <div class="btn-group mr-2" role="group" aria-label="Forth group">
+            <a type="button" class="btn btn-warning" data-method="delete" href="/users/sign_out" style="color:#FFFFFF;text-decoration:none" >
+              <b> Login </b>
+            </a>
+          </div> 
+        <% end %>
       </div>
     </nav>
-    </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <%= yield %>
 
     <footer class="container">
-      <p class="float-right"><a href="#">Back to top</a></p>
-      <p>© 2017-2019 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      <p class="float-right"><a href="/">Home</a></p>
+      <p class="float-middle">© 2020 Vertigo Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
     </footer>
   </body>
 </html>

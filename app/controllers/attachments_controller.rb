@@ -1,6 +1,5 @@
 class AttachmentsController < ApplicationController
-
-  # before_action :authenticate_user!,:except => [:show]
+  before_action :authenticate_user!,:except => [:show]
   # before_action :prevent_user_forgery, :only => [:edit,:update,:delete,:destroy]
 
   def index
