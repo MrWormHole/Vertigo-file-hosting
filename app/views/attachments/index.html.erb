@@ -1,15 +1,14 @@
 <br />
 <br />
-<br />
 <% if !flash[:notice].blank? %>
-  <div class = "alert alert-info">
+  <div class = "mt-4 alert alert-info text-center">
     <ul>
       <li> <%= show_notice %> </li>
     </ul>
   </div>
 <% end %>
 <% if !flash[:error].blank? %>
-  <div class = "alert alert-danger">
+  <div class = "mt-4 alert alert-danger text-center">
     <ul>
       <li> <%= show_error %> </li>
     </ul>

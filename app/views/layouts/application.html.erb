@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -63,13 +64,25 @@
         <% else %>
           <div class="btn-group mr-2" role="group" aria-label="Third group">
             <a type="button" class="btn btn-warning" href="/attachments" style="color:#FFFFFF;text-decoration:none" >
-              <b> Files </b>
+              <i class="fa fa-file"> 
+                Files
+              </i>
+            </a>
+          </div>
+
+          <div class="btn-group mr-2" role="group" aria-label="Third group">
+            <a type="button" class="btn btn-warning" href="/users/edit" style="color:#FFFFFF;text-decoration:none" >
+              <i class="fa fa-user-circle-o"> 
+                Account
+              </i>
             </a>
           </div>
 
           <div class="btn-group mr-2" role="group" aria-label="Forth group">
             <a type="button" class="btn btn-warning" data-method="delete" href="/users/sign_out" style="color:#FFFFFF;text-decoration:none" >
-              <b> Logout </b>
+              <i class="fa fa-sign-out"> 
+                Logout
+              </i>
             </a>
           </div> 
         <% end %>
