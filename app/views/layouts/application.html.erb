@@ -78,9 +78,11 @@
 
     <%= yield %>
 
-    <footer class="container">
-      <p class="float-right"><a href="/">Home</a></p>
-      <p class="float-middle">© 2020 Vertigo Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </footer>
+    <% if controller.action_name == "home"%>
+      <footer class="container">
+        <p class="float-right"><a href="/">Home</a></p>
+        <p class="float-middle">© 2020 Vertigo Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+    <% end%>
   </body>
 </html>

@@ -4,7 +4,14 @@
 <% if !flash[:notice].blank? %>
   <div class = "alert alert-info">
     <ul>
-      <li> <%= flash[:notice] %> </li>
+      <li> <%= show_notice %> </li>
+    </ul>
+  </div>
+<% end %>
+<% if !flash[:error].blank? %>
+  <div class = "alert alert-danger">
+    <ul>
+      <li> <%= show_error %> </li>
     </ul>
   </div>
 <% end %>

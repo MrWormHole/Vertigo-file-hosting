@@ -1,16 +1,42 @@
-<h2>Resend confirmation instructions</h2>
+<br />
+<br />
+<div class="text-center mt-4" style="width: 100%; max-width: 330px; padding: 15px; margin: auto">
+  <svg class="mb-4" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+       width="64" height="64"
+       viewBox="0 0 172 172"
+       style=" fill:#000000;">
+      <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+         stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+         font-family="none" font-size="none" style="mix-blend-mode: normal">
+        <path d="M0,172v-172h172v172z" fill="none"></path>
+        <path d="M25.8,172c-14.24895,0 -25.8,-11.55105 -25.8,-25.8v-120.4c0,-14.24895 11.55105,-25.8 25.8,-25.8h120.4c14.24895,0 25.8,11.55105 25.8,25.8v120.4c0,14.24895 -11.55105,25.8 -25.8,25.8z" fill="#fdec89"></path>
+        <g fill="#3498db">
+          <path d="M140.53088,26.61459c-0.51462,-0.72653 -1.35123,-1.15859 -2.24288,-1.15859h-20.40883c-1.1696,0 -2.20986,0.73754 -2.59789,1.84109l-29.23725,83.47091h-0.08806l-29.23725,-83.47091c-0.38803,-1.10355 -1.42829,-1.84109 -2.59789,-1.84109h-20.40883c-0.89165,0 -1.72826,0.43206 -2.24288,1.15859c-0.51738,0.72928 -0.64947,1.66221 -0.35501,2.50432l40.48467,115.584c0.38803,1.10355 1.42829,1.84109 2.59789,1.84109h23.60666c1.1696,0 2.20986,-0.73754 2.59789,-1.84109l40.48467,-115.584c0.29446,-0.84211 0.16237,-1.77504 -0.35501,-2.50432z">
+          </path>
+        </g>
+      </g>
+    </svg>
+    <h1 class="h3 mb-3 font-weight-normal text-capitalize">resend confirmation instructions</h1>
+</div>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="form-confirm">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="row">
+      <div class="form-group col-md-4 offset-md-4">
+        <%= f.label :email, for: "inputEmail" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control", placeholder:"Your Email", id: "inputEmail"  %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      <div class="actions col-md-4 offset-md-4">
+        <%= f.submit "Resend confirmation instructions", class:'btn btn-lg btn-primary btn-block' %>
+      </div>
+    </div>
+  <% end %>
+
+  </br>
+  </br>
+  <div style="text-align: center">
+    <%= render "users/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

@@ -21,6 +21,7 @@
 
 <div class="form-login" >
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { style: "width: 100%; padding: 15px; margin: auto"}) do |f| %>
+    <%= devise_error_messages! %>
     <div class="row">
       <div class="form-group col-md-4 offset-md-4">
         <%= f.label :email, for: "inputEmail" %>
@@ -48,6 +49,7 @@
     </div>
   <% end %>
 
+  </br>
   </br>
   <div style="text-align: center">
     <%= render "users/shared/links" %>
