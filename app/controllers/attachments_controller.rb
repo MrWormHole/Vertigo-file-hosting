@@ -20,7 +20,7 @@ class AttachmentsController < ApplicationController
     @attachment = current_user.attachments.build(attachment_params)
 
     if @attachment.save
-      flash[:notice] = "Success! Attachment created"
+      flash[:notice] = "Success! File created"
       redirect_to attachments_path
     else
       render('new')
@@ -39,7 +39,7 @@ class AttachmentsController < ApplicationController
   def update
     @attachment = Attachment.find(params[:id])
     if @attachment.update(attachment_params)
-      flash[:notice] = "Success! Attachment updated"
+      flash[:notice] = "Success! File updated"
       redirect_to attachments_path
     else
       render('edit')
@@ -57,7 +57,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment = Attachment.find(params[:id])
     @attachment.destroy
-    flash[:notice] = "Success! Attachment destroyed"
+    flash[:notice] = "Success! File destroyed"
     redirect_to attachments_path
   end
 

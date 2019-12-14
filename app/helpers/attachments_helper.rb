@@ -1,15 +1,45 @@
 module AttachmentsHelper
-    def get_file_size(attachment = @attachment)
-        file_size = attachment.file.blob.byte_size
-        
-        if file_size < 1000
-          return "#{file_size} KB"
-        elsif file_size < 1000 ** 2
-          return "#{(file_size/1000.0 * 10).round / 10.0} MB"
-        elsif file_size < 1000 ** 3
-          return "#{((file_size/1000.0 ** 2) * 10).round / 10.0} GB"
-        end
-    
-        return "file size couldn't be determined"
+  def human_readable_file_size(bytes)
+    if bytes < 1000
+      return "#{bytes} B"
+    elsif bytes < 1000 ** 2
+      return "#{(bytes/1000.0 * 10).round / 10.0} KB"
+    elsif bytes < 1000 ** 3
+      return "#{((bytes/1000.0 ** 2) * 10).round / 10.0} MB"
+    elsif bytes < 1000 ** 4
+      return "#{(bytes/1000.0 * 10).round / 10.0} GB"
+    end
+  end
+
+  def get_file_size(attachment)
+      file_size = attachment.file.blob.byte_size
+      
+      res = human_readable_file_size(file_size)
+      if res != nil
+        return res
       end
+  
+      return "file size couldn't be determined"
+    end
+
+    def get_total_file_sizes(attachments)
+      total = 0
+
+      for a in attachments
+        size = a.file.blob.byte_size
+        total += size
+      end
+
+      res = human_readable_file_size(total)
+      if res != nil
+        return res
+      end
+
+      return "total file sizes couldn't be determined"
+    end
+
+  def get_percentage_of_used_capacity(usedFilesSize, totalFilesSize)
+    totalFilesSize = 5 * 10 ** 4 #GB
+    usedFilesSize = 0 # this is not working out, just switch to model attributes and decide !
+  end
 end
