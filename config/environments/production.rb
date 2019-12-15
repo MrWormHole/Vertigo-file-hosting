@@ -62,12 +62,14 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => "https://vertigo-files.herokuapp.com" }
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
   :user_name => 'app148817982@heroku.com',
   :password => '1zcacxin6468',
   :domain => 'https://vertigo-files.herokuapp.com',
   :address => 'smtp.sendgrid.net',
-  :port => 465,
+  :port => 587,
   :authentication => :plain,
   :enable_starttls_auto => true
 }
