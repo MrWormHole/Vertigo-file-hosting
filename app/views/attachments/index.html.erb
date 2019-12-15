@@ -3,41 +3,42 @@
 <div class="mt-4 progress-menu" style= "width: 100%; padding: 15px; margin: auto; background-image: linear-gradient(to bottom right, #24C6DC, #514A9D)">
   <div class="lead" style= "padding-top: .5rem; padding-left: .5rem; color: #FFFFFF">
     <h3> Currently you are using a free plan. Enjoy! </h3>
-    <p> Total Space: 5 GB 
+    <p> Total Space: 5 GB(<%= current_user.selected_plan %>) </p>
+    <p> Total Usage: <%= get_total_file_sizes_in_use(@attachments,false)%> 
       <a href="/#pricing" type="button" class="ml-2 btn btn-success">
       Upgrade <span class="badge badge-light">NOW!</span>
-      </a>
+      </a> 
     </p>
   </div>
   <div class="progress">
-    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> 25 used </div>
-    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"> 75 not used </div>
+    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (total_percentage_of_used_space(@attachments, current_user.selected_plan)) %>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"> </div>
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%= (total_percentage_of_non_used_space(@attachments, current_user.selected_plan)) %>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"> </div>
   </div>
 </div>
 
 <% if !flash[:notice].blank? %>
-  <div class = "mt-4 alert alert-info text-center">
+  <div class = "mt-2 alert alert-info text-center">
     <ul>
       <li> <%= show_notice %> </li>
     </ul>
   </div>
 <% end %>
 <% if !flash[:error].blank? %>
-  <div class = "mt-4 alert alert-danger text-center">
+  <div class = "mt-2 alert alert-danger text-center">
     <ul>
       <li> <%= show_error %> </li>
     </ul>
   </div>
 <% end %>
 
-<div class="col-md-4 offset-md-4">
+<div class="mt-4 col-md-4 offset-md-4">
   <%= link_to '<i class="fa fa-cloud-upload"> Upload </i>'.html_safe, new_attachment_path, class: "btn btn-primary btn-lg btn-block"%>
 </div>
 <br />
 <br />
 
-<p> <%= get_total_file_sizes(@attachments) %> </p>
-<p> <%= @used_file_size_in_gb %> </p>
+<!-- <p> <%= human_readable_file_size_from_gb(@used_file_size_in_gb) %> </p> -->
+<!-- <p> <%= @used_file_size_in_gb %> </p> -->
 
 <div class="dashboard-panel table-responsive-md" style= "width: 100%; padding-left: 1rem; padding-right: 1rem; margin: auto;">
   <table class = "table table-bordered table-striped">
@@ -46,7 +47,7 @@
       <th>Name</th>
       <th> Original Name </th>
       <th> File Size</th>
-      <th> Created At</th>
+      <th> Upload Date</th>
       <th> Actions</th>
     </tr>
     </thead>
