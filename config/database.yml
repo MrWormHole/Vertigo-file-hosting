@@ -20,10 +20,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: qbwfeprxrrcdib
-  password: ae6dd49e9729941c2518373014ee76a706c18633e9e32da0d1e19f4cde382223
-  host: ec2-54-247-188-247.eu-west-1.compute.amazonaws.com
-  database: d3rmcdrj669ahj
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
 
 development:
   <<: *default
