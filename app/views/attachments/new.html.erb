@@ -1,8 +1,12 @@
 <br />
 <br />
-<br />
+
+<div class="text-center mt-2" style="width: 100%; max-width: 330px; padding: 15px; margin: auto">
+  <h1 class="h3 mb-3 font-weight-normal text-capitalize">Upload File</h1>
+</div>
+
 <% if !@attachment.errors.empty? %>
-  <div class = "alert alert-danger">
+  <div class = "alert alert-danger text-center">
     <ul>
       <% @attachment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,13 +15,22 @@
   </div>
 <% end %>
 
-<br/>
-<div class = "well">
+<div class = "form-upload-file">
   <%= form_for @attachment, :url => attachments_path, html: { multipart: true } do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :file %>
-    <%= f.file_field :file %>
-    <%= f.submit "Save", class: "btn btn-primary" %>
+    <div class="frow">
+      <div class="form-group col-md-2 offset-md-5">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:"form-control" %>
+      </div>
+
+      <div class="form-group col-md-2 offset-md-5">
+        <%= f.label :file %>
+        <%= f.file_field :file, class: "form-control" %>
+      </div>
+
+      <div class= "form-group col-md-2 offset-md-5">
+        <%= f.submit "Upload", class: "btn btn-primary btn-block form-control" %>
+      </div>
+    </div>
   <% end %>
 </div>

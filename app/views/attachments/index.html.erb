@@ -14,7 +14,7 @@
     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"> 75 not used </div>
   </div>
 </div>
-<br />
+
 <% if !flash[:notice].blank? %>
   <div class = "mt-4 alert alert-info text-center">
     <ul>
@@ -29,33 +29,42 @@
     </ul>
   </div>
 <% end %>
-<%= link_to "New File", new_attachment_path, class: "btn btn-primary" %>
+
+<div class="col-md-4 offset-md-4">
+  <%= link_to '<i class="fa fa-cloud-upload"> Upload </i>'.html_safe, new_attachment_path, class: "btn btn-primary btn-lg btn-block"%>
+</div>
 <br />
 <br />
 
 <p> <%= get_total_file_sizes(@attachments) %> </p>
 <p> <%= @used_file_size_in_gb %> </p>
 
-<table class = "table table-bordered table-striped">
-  <thead class="thead-dark">
-  <tr>
-    <th>Name</th>
-    <th> File Size</th>
-    <th>Download Link</th>
-    <th> </th>
-  </tr>
-  </thead>
+<div class="dashboard-panel table-responsive-md" style= "width: 100%; padding-left: 1rem; padding-right: 1rem; margin: auto;">
+  <table class = "table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th> Original Name </th>
+      <th> File Size</th>
+      <th> Created At</th>
+      <th> Actions</th>
+    </tr>
+    </thead>
 
-  <tbody>
-    <% @attachments.each do |attachment| %>
-      <tr>
-        <td><%= attachment.name %></td>
-        <td><%= get_file_size(attachment)%></td>
-        <td><%= link_to "Download File", url_for(attachment.file) if attachment.file.attached? %></td>
-        <td><%= button_to "Delete",  attachment, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{attachment.name}?" %></td>
-      </tr>
-
-    <% end %>
-  </tbody>
-
-</table>
+    <tbody>
+      <% @attachments.each do |attachment| %>
+        <tr>
+          <td><%= attachment.name %></td>
+          <td><%= attachment.file.filename %> </td>
+          <td><%= get_file_size(attachment)%></td>
+          <td> <%= attachment.file.created_at %></td>
+          <td>
+            <%= link_to '<i class="fa fa-trash"> Delete </i>'.html_safe,  attachment, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{attachment.name}?" %>
+            <%= link_to '<i class="fa fa-download"> Download </i>'.html_safe, rails_blob_path(attachment.file, disposition: "attachment"), class: "btn btn-warning", style: "color:#FFFFFF;text-decoration:none" if attachment.file.attached? %>
+            <%= link_to '<i class="fa fa-photo"> Preview </i>'.html_safe, url_for(attachment.file), class: "btn btn-info", style: "color:#FFFFFF;text-decoration:none" if attachment.file.attached? && attachment.file.image? %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
