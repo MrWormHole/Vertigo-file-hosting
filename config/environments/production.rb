@@ -62,8 +62,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.smtp_settings = {
-  :user_name => 'vertigo',
-  :password => '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',
+  :user_name => <%= ENV['SENDGRID_USERNAME'] %>,
+  :password => <%= ENV['SENDGRID_PASSWORD'] %>,
   :domain => 'https://vertigo-files.herokuapp.com',
   :address => 'smtp.sendgrid.net',
   :port => 465,
