@@ -36,7 +36,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :microsoft
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -61,6 +61,15 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "vertigo_platform_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.smtp_settings = {
+  :user_name => 'vertigo',
+  :password => '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',
+  :domain => 'https://vertigo-files.herokuapp.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 465,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
