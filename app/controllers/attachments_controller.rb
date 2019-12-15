@@ -1,12 +1,19 @@
 class AttachmentsController < ApplicationController
   before_action :authenticate_user!,:except => [:show]
   # before_action :prevent_user_forgery, :only => [:edit,:update,:delete,:destroy]
-
+  
   def index
     @attachments = current_user.attachments
+    @used_file_size_in_gb = current_user.used_file_size_in_gb
   end
 
   def show
+    if @attachment.visible 
+      @attachment = Attachment.find(params[:id])
+      redirect_to attachment_path(@attachment)
+      # which will use the primary ‘id’ key or your ‘hash_id’ to look up records. There you have it!
+    end
+    
     # this is gonna be for showing a download link
     # get it and show it if user allowed it to be seen only
     # @attachment = Attachment.find(params[:id])
@@ -20,6 +27,9 @@ class AttachmentsController < ApplicationController
     @attachment = current_user.attachments.build(attachment_params)
 
     if @attachment.save
+      file_load = 0 
+      file_load += @attachment.file.blob.byte_size / 10.0 ** 9
+      current_user.update(:used_file_size_in_gb => file_load)
       flash[:notice] = "Success! File created"
       redirect_to attachments_path
     else
@@ -56,6 +66,9 @@ class AttachmentsController < ApplicationController
 
   def destroy
     @attachment = Attachment.find(params[:id])
+    total_file_load = current_user.used_file_size_in_gb
+    total_file_load -= @attachment.file.blob.byte_size / 10.0 ** 9
+    current_user.update(:used_file_size_in_gb => total_file_load)
     @attachment.destroy
     flash[:notice] = "Success! File destroyed"
     redirect_to attachments_path

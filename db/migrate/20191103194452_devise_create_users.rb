@@ -3,6 +3,9 @@
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def up
     create_table :users do |t|
+      ## Vertigo plan
+      t.string :selected_plan, null: false, default: "FREE" # Free, Premium, Pro, Enterprise
+      t.float :used_file_size_in_gb, null:false, default: 0 # This will be our current usage in order to prevent going over plan
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

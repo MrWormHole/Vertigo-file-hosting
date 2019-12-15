@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_200529) do
 
   create_table "attachments", force: :cascade do |t|
     t.string "name", limit: 64
+    t.string "hash_id", null: false
     t.boolean "visible", default: true
     t.integer "download_count", default: 0
     t.bigint "user_id"
@@ -48,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_11_03_200529) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "selected_plan", default: "FREE", null: false
+    t.float "used_file_size_in_gb", default: 0.0, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

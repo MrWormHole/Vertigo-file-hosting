@@ -34,6 +34,7 @@
 <br />
 
 <p> <%= get_total_file_sizes(@attachments) %> </p>
+<p> <%= @used_file_size_in_gb %> </p>
 
 <table class = "table table-bordered table-striped">
   <thead class="thead-dark">
@@ -46,15 +47,15 @@
   </thead>
 
   <tbody>
-  <% @attachments.each do |attachment| %>
-    <tr>
-      <td><%= attachment.name %></td>
-      <td><%= get_file_size(attachment)%></td>
-      <td><%= link_to "Download File", url_for(attachment.file) if attachment.file.attached? %></td>
-      <td><%= button_to "Delete",  attachment, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{attachment.name}?" %></td>
-    </tr>
+    <% @attachments.each do |attachment| %>
+      <tr>
+        <td><%= attachment.name %></td>
+        <td><%= get_file_size(attachment)%></td>
+        <td><%= link_to "Download File", url_for(attachment.file) if attachment.file.attached? %></td>
+        <td><%= button_to "Delete",  attachment, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{attachment.name}?" %></td>
+      </tr>
 
-  <% end %>
+    <% end %>
   </tbody>
 
 </table>
